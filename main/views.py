@@ -51,7 +51,7 @@ def index(request):
         if 'next' in request.POST: # The Next button was pressed
             
             # Access IGDB API
-            token_request = requests.post(f'https://id.twitch.tv/oauth2/token?client_id={env('IGDB_CLIENT_ID')}&client_secret={env('IGDB_CLIENT_SECRET')}&grant_type=client_credentials')
+            token_request = requests.post(f'https://id.twitch.tv/oauth2/token?client_id={env("IGDB_CLIENT_ID")}&client_secret={env("IGDB_CLIENT_SECRET")}&grant_type=client_credentials')
             token = token_request.json()['access_token']
 
             # Initialize IGDB wrapper
