@@ -79,7 +79,7 @@ def index(request):
             if 'cover' in game_result:
 
                 # Get cover
-                cover_result = igdb_request('covers', ['url'], [f'where id={game_result['cover']}'])
+                cover_result = igdb_request('covers', ['url'], [f'where id={game_result["cover"]}'])
                 context['game_cover_url'] = cover_result['url']
 
             # Check if genres are available
