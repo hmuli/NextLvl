@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8' />
+        <title>NextLvl</title>
+    </head>
+    <body>
+        <h1>NextLvl</h1>
+        <p>NextLvl scours over 40 years of video game releases to find the next game for you to play.</p>
+        <p>Click <b>Next</b> to get started!</p>
+        <form method="POST">
+            {% csrf_token %}
+            <button type='submit' name='next'>Next</button>
+        </form>
+        {% if game_name %}
+            <h2>Got one!</h2>
+
+            <!-- Render game cover -->
+            {% if game_cover_url %}
+                <img src='{{ game_cover_url }}' alt='{{ game_name }}'>
+            {% endif %}
+
+            <!-- Add game name -->
+            <h3>Name:</h3>
+            <p>{{ game_name }}</p>
+
+            <!-- Add game genres -->
+            <h3>Genres:</h3>
+            <p>{{ game_genres }}</p>
+
+            <!-- Add game release date -->
+            <h3>Release date:</h3>
+            <p>{{ game_release_date }}</p>
+        {% endif %}
+    </body>
+</html>
